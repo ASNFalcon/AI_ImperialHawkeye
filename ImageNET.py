@@ -1,11 +1,19 @@
 import tensorflow as tf
+import os
 
-a= tf.constant([1.0, 2.0], name = "a")
-b= tf.constant([4.0, 3.0], name = "b")
+a = tf.Variable(tf.constant([1.0, 2.0], name = "a"))
+b = tf.Variable(tf.constant([4.0, 3.0], name = "b"))
 
-result = tf.add(a, b, name = "add")
 
-sess = tf.Session()
-sess.run(result)
+result = a + b
 
-print(result)
+init_op = tf.global_variables_initializer()
+
+saver = tf.train.Saver()
+
+with tf.Session() as sess:
+
+    saver.restore(sess, os.path.abspath('../AI_ImperialHawkeye\\model\\model.ckpt'))
+    
+    sess.run(init_op)
+    saver.save(sess, os.path.abspath('../AI_ImperialHawkeye\\model\\model.ckpt'))

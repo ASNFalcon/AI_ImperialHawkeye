@@ -36,7 +36,7 @@ with tf.Session() as sess:
     print (sess.run(w2))
 
     #设定训练轮数
-    STEPS = 10000
+    STEPS = 20000
     for i in range(STEPS):
         start = (i * batch_size) % dataset_size
         end = min(start + batch_size, dataset_size)

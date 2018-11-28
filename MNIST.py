@@ -15,8 +15,8 @@ import os
         如果需要更改模型保存的位置 自行修改MODEL_SAVE_PATH 这里默认为当前文件夹存储模型文件
 '''
  
-#os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID" # 按照PCI_BUS_ID顺序从0开始排列GPU设备
-#os.environ["CUDA_VISIBLE_DEVICES"] = "0"  # 使用GPU 0
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID" # 按照PCI_BUS_ID顺序从0开始排列GPU设备
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"  # 使用GPU 0
 config = tf.ConfigProto()  # 获取配置信息
 config.log_device_placement = False  # 不输出设备和tensor详细信息
 config.gpu_options.allow_growth=True  # GPU按需分配大小 不然的话会显示GPU占用率很高
@@ -31,7 +31,7 @@ OUTPUT_SIZE = 10  # 输出层只有0~9这10个类别
 BATCH_SIZE = 100  # 一次输入一百张图片来训练
 LR_BASE = 0.09  # 基础学习率  使用指数衰减
 LR_DECAY = 0.99  # 指数衰减参数
-TRAIN_STEPS = 30000  # 总共训练的轮数
+TRAIN_STEPS = 100000  # 总共训练的轮数
 MOVING_AVERAGE_DECAY = 0.99  # 滑动平均参数
 REGULARIZATION_RATE = 0.0001  # 正则化系数
 #=======================================================

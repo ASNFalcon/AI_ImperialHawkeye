@@ -1,2 +1,2 @@
-model_checkpoint_path: "mnist-model-17003"
-all_model_checkpoint_paths: "mnist-model-17003"
+model_checkpoint_path: "model.ckptl"
+all_model_checkpoint_paths: "model.ckptl"
